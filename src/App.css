@@ -16,7 +16,8 @@
 .App-header {
   /* background-color: #282c34; */
   /* background-color: #af2a359f; */
-  background-color: #174b23a2;
+  /* background-color: #174b23a2; */
+  background-color: #f31515a2;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
