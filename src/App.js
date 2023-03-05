@@ -32,9 +32,10 @@ function App() {
         <Cam />
 
         <div class="box"></div>
-        <button class="button" onClick={test}>Click</button>
+        <button class="button" onClick={test}>Share</button>
         <div class="box"></div>
-        <a href="tel:+99718637334">Call: 99718637334</a>
+        {/* <a href="tel:+99718637334">Call: 99718637334</a> */}
+        <button class="button" onclick={ window.open('tel:+94771115431') }>Dial</button>
 
       </header>
     </div>
