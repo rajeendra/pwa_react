@@ -33,6 +33,8 @@ function App() {
 
         <div class="box"></div>
         <button class="button" onClick={test}>Click</button>
+        <div class="box"></div>
+        <a href="tel:+99718637334">Call: 99718637334</a>
 
       </header>
     </div>
