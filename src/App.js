@@ -1,12 +1,13 @@
 import logo from './logo.svg';
 import './App.css';
 import { test } from './test';
+import Cam from './Cam';
 
 function App() {
 
-  return (
-    <div className="App">
-      <header className="App-header">
+  const Default = () => {
+    return (
+      <>
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
@@ -18,9 +19,21 @@ function App() {
           rel="noopener noreferrer"
         >
           Learn React
-        </a>
+        </a>      
+      </>
+    )
+  }
+
+  return (
+    <div className="App">
+      <header className="App-header">
+
+        {/* <Default /> */}
+        <Cam />
+
         <div class="box"></div>
         <button class="button" onClick={test}>Click</button>
+
       </header>
     </div>
   );
