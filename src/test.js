@@ -1,10 +1,41 @@
 
-export const test = () => {
-    caseOne()
+export const test = (setState, task) => {
+
+    task==='location' 
+    ? 
+    caseMap(setState)
+    :
+    task==='share'
+    ?
+    caseShare(setState)
+    :
+    caseShare(setState)
+
+}
+
+export const caseMap = (setState) => {
+
+    function getLocation() {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(showPosition);
+        } else {
+          const x = "Geolocation is not supported by this browser.";
+          setState({text: x});
+        }
+      }
+      
+    function showPosition(position) {
+        const y = "Latitude: " + position.coords.latitude +
+        " Longitude: " + position.coords.longitude;
+        setState({text: y});
+    }
+
+    getLocation();
+
 }
 
 
-export const caseOne = () => {
+export const caseShare = (setState) => {
 
     const filesArray = []
     

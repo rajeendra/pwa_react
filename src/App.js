@@ -2,8 +2,23 @@ import logo from './logo.svg';
 import './App.css';
 import { test } from './test';
 import Cam from './Cam';
+import { alertTitleClasses } from '@mui/material';
+import Alert from '@mui/material/Alert';
+import { useState } from 'react';
+import AppMenuBar from './AppMenuBar';
+import Location from './Location';
+// import useAuth from "../../iam/hooks/useAuth";
 
 function App() {
+
+  const [obj, setObj] = useState({text:'',mi:'home'});
+
+  const setValues = (o) => {
+    setObj(e=>
+      {
+        return {...e, ...o}
+      })
+  }
 
   const Default = () => {
     return (
@@ -26,18 +41,55 @@ function App() {
 
   return (
     <div className="App">
+      <AppMenuBar setValues={setValues}/>
       <header className="App-header">
+        {
+          obj.text 
+          && 
+          <>
+          <div class="box"></div>
+          <Alert sx={{ color: 'white' }} variant="outlined" color="error">{obj.text}</Alert>
+          </>
+        }
 
-        {/* <Default /> */}
+        {
+        obj.mi==='home' 
+        &&
+        <>
+        <Default />
+        </> 
+        }
+
+        {
+        obj.mi==='cam' 
+        && 
         <Cam />
+        }
 
+        {
+        obj.mi==='share' 
+        &&
+        <>
         <div class="box"></div>
+        <button class="button" onClick={ ()=>{test(setValues, 'share')} }>Share</button>
+        </> 
+        }
 
-        <button class="button" onClick={test}>Share</button>
-
+        {
+        obj.mi==='location' 
+        && 
+        <>
         <div class="box"></div>
+        <button class="button" onClick={ ()=>{test(setValues, 'location')} }>Location</button>
+        </>
+        }
 
-        <button class="button" onClick={ ()=>{window.open('tel: +94771115431')} }>Dial</button>
+        {
+        obj.mi==='map' 
+        && 
+        <Location />
+        }        
+
         {/* <a href="tel:+99718637334">Call: 99718637334</a> */}
 
       </header>
