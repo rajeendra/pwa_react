@@ -1,9 +1,9 @@
 
-export const test = (setState, task) => {
+export const test = async (setState, task) => {
 
     task==='location' 
     ? 
-    caseMap(setState)
+    casePosition(setState)
     :
     task==='share'
     ?
@@ -13,9 +13,9 @@ export const test = (setState, task) => {
 
 }
 
-export const caseMap = (setState) => {
+export const casePosition = (setState) => {
 
-    function getLocation() {
+    function getPosition() {
         if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition(showPosition);
         } else {
@@ -25,12 +25,14 @@ export const caseMap = (setState) => {
       }
       
     function showPosition(position) {
-        const y = "Latitude: " + position.coords.latitude +
+        const y =
+        "Latitude: " + position.coords.latitude +
         " Longitude: " + position.coords.longitude;
-        setState({text: y});
+        
+        setState({text: y, position: {lat:position.coords.latitude, lng: position.coords.longitude}});
     }
 
-    getLocation();
+    getPosition();
 
 }
 

@@ -70,6 +70,7 @@ export default function AppMenuBar(props) {
         <MenuItem onClick={() => { handleMenu('location') }}>Location</MenuItem>
         <MenuItem onClick={() => { handleMenu('map') }}>Map</MenuItem>
         <MenuItem onClick={() => { handleMenu('share') }}>Share</MenuItem>
+        <MenuItem onClick={() => { handleMenu('dial') }}>Dial</MenuItem>
         <MenuItem onClick={handleClose}>Close</MenuItem>
     </Menu>
   </div>

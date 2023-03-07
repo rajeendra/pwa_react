@@ -87,8 +87,17 @@ function App() {
         {
         obj.mi==='map' 
         && 
-        <Location />
+        <Location values={obj} setValues={setValues} />
         }        
+
+{
+        obj.mi==='dial' 
+        && 
+        <>
+        <div class="box"></div>
+        <button class="button" onClick={ ()=>{window.open('tel:'+ '+94771115431')} } > Dial </button>
+        </>
+        }
 
         {/* <a href="tel:+99718637334">Call: 99718637334</a> */}
 
