@@ -7,7 +7,6 @@ import Alert from '@mui/material/Alert';
 import { useState } from 'react';
 import AppMenuBar from './AppMenuBar';
 import Location from './Location';
-// import useAuth from "../../iam/hooks/useAuth";
 
 function App() {
 
@@ -40,69 +39,70 @@ function App() {
   }
 
   return (
+    <>
     <div className="App">
       <AppMenuBar setValues={setValues}/>
-      <header className="App-header">
-        {
-          obj.text 
-          && 
-          <>
-          <div class="box"></div>
-          <Alert sx={{ color: 'white' }} variant="outlined" color="error">{obj.text}</Alert>
-          </>
-        }
-
-        {
-        obj.mi==='home' 
-        &&
-        <>
+      {
+      obj.mi==='home' 
+      &&
+      <>
+      <div className="App-main-panel">
         <Default />
-        </> 
-        }
+      </div>
+      </> 
+      }
 
-        {
-        obj.mi==='cam' 
-        && 
+      {
+      obj.mi==='cam' 
+      && 
+      <div className="App-main-panel">
         <Cam />
-        }
+      </div>
+      }
 
-        {
-        obj.mi==='share' 
-        &&
-        <>
+      {
+      obj.mi==='share' 
+      &&
+      <>
+      <div className="App-main-panel">
         <div class="box"></div>
         <button class="button" onClick={ ()=>{test(setValues, 'share')} }>Share</button>
-        </> 
-        }
+      </div>
+      </> 
+      }
 
-        {
-        obj.mi==='location' 
-        && 
-        <>
-        <div class="box"></div>
-        <button class="button" onClick={ ()=>{test(setValues, 'location')} }>Location</button>
-        </>
-        }
+      {
+      obj.mi==='location' 
+      && 
+      <>
+        <div className="App-main-panel">
+          <div class="box"></div>
+          { obj.text && <Alert sx={{ color: 'white' }} variant="outlined" color="error">{obj.text}</Alert> }
+          <div class="box"></div>
+          <button class="button" onClick={ ()=>{test(setValues, 'location')} }>Location</button>
+        </div>
+      </>
+      }
 
-        {
-        obj.mi==='map' 
-        && 
-        <Location values={obj} setValues={setValues} />
-        }        
+      {
+      obj.mi==='map' 
+      && 
+      <Location values={obj} setValues={setValues} />
+      }        
 
-{
-        obj.mi==='dial' 
-        && 
-        <>
+      {
+      obj.mi==='dial' 
+      && 
+      <>
+      <div className="App-main-panel">
         <div class="box"></div>
         <button class="button" onClick={ ()=>{window.open('tel:'+ '+94771115431')} } > Dial </button>
-        </>
-        }
+      </div>
+      </>
+      }
 
-        {/* <a href="tel:+99718637334">Call: 99718637334</a> */}
-
-      </header>
     </div>
+    </>
   );
 }
 

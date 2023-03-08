@@ -1,11 +1,15 @@
 import React from 'react'
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { GoogleMap, useJsApiLoader, Marker} from '@react-google-maps/api';
 import { test } from './test';
 
+const appBarHeight = 55
+
 const containerStyle = {
   width: '100vw',
-  height: '100vh'
+  //height: height,
+  //height: 'calc( 100vh - 55px )'
+  height: 'calc( 100vh - ' + appBarHeight +'px )'
 };
 
 const center = {
@@ -36,7 +40,11 @@ const centers = [
 ];
 
 function Location(props) {
-
+  
+  // useEffect(() => {
+  //   console.log(window.innerHeight)
+  // })  
+  
   const {values, setValues} = props
 
   const { isLoaded } = useJsApiLoader({
@@ -103,6 +111,7 @@ function Location(props) {
           // }}
           //icon={"https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png"}
           icon={"mp.png"}
+          //icon={"logo192.png"}
           //position={centers[0]}
           position={values.position}
         />
