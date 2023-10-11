@@ -7,6 +7,7 @@ import Alert from '@mui/material/Alert';
 import { useState } from 'react';
 import AppMenuBar from './AppMenuBar';
 import Location from './Location';
+import AWSPolly from './AWSPolly';
 
 function App() {
 
@@ -98,6 +99,19 @@ function App() {
         <div class="box"></div>
         <button class="button" onClick={ ()=>{window.open('tel:'+ '+94771115431')} } > Dial </button>
       </div>
+      </>
+      }
+
+      {
+      obj.mi==='aws-polly' 
+      && 
+      <>
+      <div className="App-main-panel">
+        <p>
+          AWS <code>src/polly.js</code>
+        </p>
+      </div>
+      <AWSPolly />
       </>
       }
 
