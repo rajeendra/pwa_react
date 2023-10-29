@@ -8,6 +8,7 @@ import { useState } from 'react';
 import AppMenuBar from './AppMenuBar';
 import Location from './Location';
 import AWSPolly from './AWSPolly';
+import AWSS3 from './AWSS3';
 
 function App() {
 
@@ -112,6 +113,19 @@ function App() {
         </p>
       </div>
       <AWSPolly />
+      </>
+      }
+
+      {
+      obj.mi==='aws-s3' 
+      && 
+      <>
+      <div className="App-main-panel">
+        <p>
+          AWS <code>src/S3.js</code>
+        </p>
+      </div>
+      <AWSS3 />
       </>
       }
 
