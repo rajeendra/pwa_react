@@ -5,6 +5,7 @@ import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import TextField from '@mui/material/TextField';
 import { useState, useRef } from 'react';
+import ImageCard from './ImageCard';
 
 // AWS Policy: Which Resource, Which action
 
@@ -31,6 +32,7 @@ import { useState, useRef } from 'react';
 const AWSS3 = () =>{
 
     const [album, setAlbum] = useState();
+    const [clickTime, setClickTime] = useState(0);
 
     async function listAlbums() {
         window.s3.listObjects({ Delimiter: "/" }, function(err, data) {
@@ -133,22 +135,29 @@ const AWSS3 = () =>{
       addPhoto(fileObj);
     };
 
-    function deletePhoto(albumName, photoKey) {
-        window.s3.deleteObject({ Key: photoKey }, function(err, data) {
-          if (err) {
-            return alert("There was an error deleting your photo: ", err.message);
-          }
-          //alert("Successfully deleted photo.");
-          viewAlbum();
-        });
+    function deletePhoto(event, albumName, photoKey) {
+        const now = new Date().getTime();
+        const gap = now - clickTime - 0;
+        //console.log(gap)
+        setClickTime(now)
+
+        // double click
+        //if(gap<250){
+            window.s3.deleteObject({ Key: photoKey }, function(err, data) {
+              if (err) {
+                return alert("There was an error deleting your photo: ", err.message);
+              }
+              //alert("Successfully deleted photo.");
+              viewAlbum();
+            });
+        //}
+
     }
       
     const Photo = (props) => {
         return(
-            <Grid item xs={12} sx={{ display: 'flex', justifyContent: 'center'}} onClick={()=>{ deletePhoto(props.albumName, props.photoKey) } } >
-                <a href="#.">
-                <img src={props.imageUrl} width={'125px'} height={'125px'} style={{ objectFit: 'cover' }} />
-                </a>    
+            <Grid item xs={12} sx={{ display: 'flex', justifyContent: 'center'}}  >
+                <ImageCard width={'125px'} height={'125px'} src={props.imageUrl} albumName={props.albumName} photoKey={props.photoKey} clickCross={deletePhoto} />
             </Grid>
         )
     }
