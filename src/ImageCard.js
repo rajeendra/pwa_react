@@ -15,7 +15,7 @@ const ImageCard = (props) =>{
         <Box sx={{ position: 'relative' }}>
             <CardMedia
                 component="img"
-                height={props.height}
+                //height={props.height}
                 width={props.width}
                 //image="https://mui.com/static/images/cards/contemplative-reptile.jpg"
                 image={props.src}
@@ -28,9 +28,13 @@ const ImageCard = (props) =>{
                         top: 0,
                         //left: 0,
                         right: 0,
-                        //bgcolor: 'rgba(0, 0, 0, 0.54)',
+                        bgcolor: 'rgba(0, 0, 0, 0.54)',
                         color: 'white',
-                        padding: '10px',
+                        //padding: '4px',
+                        margin: "2px",
+                        width: "15px",
+                        paddingLeft: "4px",
+                        justifyContent: "center"
                     }}
                     onClick={(event) => {clickCross(event)} }
                 >
