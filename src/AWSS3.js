@@ -166,6 +166,8 @@ const AWSS3 = () =>{
         <>
         <Box sx={{ flexGrow: 1, m:3 }}>
         <Grid container spacing={2}>
+        <div style={{padding:"10px", margin:"0"}}><b>Note:</b> In here "S3 Refresh" pressed only the "AWSS3.js" element gets re-render</div>
+
             <Grid item xs={12}  sx={{ display: 'flex', justifyContent: 'center'}}>
                 <button class="button" onClick={viewAlbum}> S3 Refresh</button>
             </Grid>

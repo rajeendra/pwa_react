@@ -44,6 +44,10 @@ function App() {
     <>
     <div className="App">
       <AppMenuBar setValues={setValues}/>
+      
+      {/* Test component */}
+      <div style={{padding:"10px", margin:"0", backgroundColor: "#af2a359f" }}>Now time is {new Date().getTime()}.</div>
+
       {
       obj.mi==='home' 
       &&
@@ -79,7 +83,9 @@ function App() {
       <>
         <div className="App-main-panel">
           <div class="box"></div>
-          { obj.text && <Alert sx={{ color: 'white' }} variant="outlined" color="error">{obj.text}</Alert> }
+          <div style={{padding:"10px", margin:"0"}}><br></br>Note: In here location fetched, whole "App" element gets re-render </div>
+
+          { obj.text && <Alert sx={{ color: 'white', ml:"1px", mr:"3px" }} variant="outlined" color="error">{obj.text}</Alert> }
           <div class="box"></div>
           <button class="button" onClick={ ()=>{test(setValues, 'location')} }>Location</button>
         </div>

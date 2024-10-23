@@ -29,7 +29,7 @@ const AWSPolly = () =>{
         <Box sx={{ flexGrow: 1, m:3 }}>
         <Grid container spacing={2}>
             <Grid item xs={12}  >
-                <TextField fullWidth id="textEntry" label="Enter text here and then click Synthesize " variant="outlined" />
+                <TextField fullWidth id="textEntry" label="Enter text here and then click Synthesize " variant="outlined" sx={{ backgroundColor: "white"}} />
             </Grid>
             <Grid item xs={12}  sx={{ display: 'flex', justifyContent: 'center'}}>
                 <button class="button" onClick={speakText}> Synthesize</button>

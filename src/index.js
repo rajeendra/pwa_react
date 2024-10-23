@@ -12,6 +12,9 @@ import '@fontsource/roboto/700.css';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    {/* Test component */}
+    <div style={{padding:"10px", margin:"0", backgroundColor: "#af2a359f" }}>Now time is {new Date().getTime()}. <br></br>Note: This element not render on menu item selected. </div>
+   
     <App />
   </React.StrictMode>
 );
